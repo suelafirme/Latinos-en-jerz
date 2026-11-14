@@ -1,0 +1,1 @@
+window.LATINOS_CONFIG={supabaseUrl:"https://mznovniuffafmpnaqemk.supabase.co",supabasePublishableKey:"sb_publishable_GIQSHNmRGkfmIAuWEuwt-w_PF-7YM5Y",whatsappGroupUrl:""};
