@@ -35,6 +35,7 @@ public final class MainActivity extends Activity {
     web.setLayerType(View.LAYER_TYPE_HARDWARE,null);
     WebSettings s=web.getSettings();
     s.setJavaScriptEnabled(true);
+    s.setUserAgentString(s.getUserAgentString()+" LatinosAndroid/4.0");
     s.setDomStorageEnabled(true);
     s.setDatabaseEnabled(true);
     s.setAllowFileAccess(false);
