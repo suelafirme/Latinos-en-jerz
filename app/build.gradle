@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.latinosenjerez.app"
         minSdk 24
-        targetSdk 35
+        targetSdk 34
         versionCode 4
         versionName "4.0"
     }
