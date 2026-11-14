@@ -40,5 +40,7 @@ jobs:
           name: LATINOS-V4-SCREENSHOT
           path: |
             ui-screenshot.png
+            home-live.png
+            groups-live.png
             chrome-errors.log
             rendered.html
