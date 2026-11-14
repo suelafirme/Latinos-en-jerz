@@ -28,20 +28,12 @@ jobs:
         shell: bash
         run: |
           curl -IL --max-time 20 "https://esm.sh/@supabase/supabase-js@2.95.3" | head -16
-      - name: Render with Chrome
+      - name: Render and test with real-time browser waits
         shell: bash
         run: |
           python3 -m http.server 8123 --bind 127.0.0.1 &
-          sleep 2
-          CHROME=$(command -v google-chrome || command -v chromium || true)
-          if [ -z "$CHROME" ]; then echo "No Chrome installed"; exit 1; fi
-          timeout 70s "$CHROME" --headless --no-sandbox --disable-gpu --hide-scrollbars --disable-dev-shm-usage --virtual-time-budget=20000 --window-size=430,950 --screenshot=ui-screenshot.png http://127.0.0.1:8123/ || true
-          timeout 70s "$CHROME" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --enable-logging=stderr --virtual-time-budget=30000 --dump-dom http://127.0.0.1:8123/ > rendered.html 2>chrome-errors.log
-          cat chrome-errors.log | grep -E "(error|ERROR|Error|Failed|refused)" | tail -12 || true
-          echo "Group status:"; grep -o -E "group-mini|Cargando grupos|Failed to fetch|Error" rendered.html | sort | uniq -c || true
-          grep -q 'LATINOS EN JEREZ' rendered.html
-          grep -q 'group-mini' rendered.html
-          if grep -q 'Cargando grupos...' rendered.html; then echo 'Groups did not finish loading'; exit 1; fi
+          npm install --no-save playwright-core@1.57.0
+          node smoke-web.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
