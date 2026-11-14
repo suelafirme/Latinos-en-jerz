@@ -10,8 +10,10 @@ try{
  console.log('PASSED: Categories and Supabase-backed community groups rendered');
  const groupName=await page.locator('#featuredGroups .group-mini b').first().textContent();
  console.log('GROUP:',groupName);
+ await page.screenshot({path:'home-live.png',fullPage:true});
  await page.getByRole('button',{name:/Grupos/}).last().click();
  await page.waitForSelector('#groupsList .group-card',{timeout:15000});
+ await page.screenshot({path:'groups-live.png',fullPage:true});
  await page.getByRole('button',{name:/Perfil/}).last().click();
  await page.waitForSelector('#accountLogin',{timeout:15000});
  await page.screenshot({path:'ui-screenshot.png',fullPage:true});
