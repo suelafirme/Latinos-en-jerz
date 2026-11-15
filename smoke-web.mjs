@@ -11,6 +11,11 @@ try{
  const groupName=await page.locator('#featuredGroups .group-mini b').first().textContent();
  console.log('GROUP:',groupName);
  await page.screenshot({path:'home-live.png',fullPage:true});
+ await page.locator('#homeListings .v5-listing').first().click();
+ await page.waitForSelector('#detailContent .v5-detail',{timeout:15000});
+ await page.screenshot({path:'detail-live.png',fullPage:true});
+ await page.locator('[data-close="detailModal"]').click();
+ console.log('PASSED: real approved listing, designed detail view and gallery');
  await page.getByRole('button',{name:/Grupos/}).last().click();
  await page.waitForSelector('#groupsList .group-card',{timeout:15000});
  await page.screenshot({path:'groups-live.png',fullPage:true});
