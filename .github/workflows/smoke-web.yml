@@ -47,5 +47,6 @@ jobs:
             ui-screenshot.png
             home-live.png
             groups-live.png
+            detail-live.png
             chrome-errors.log
             rendered.html
