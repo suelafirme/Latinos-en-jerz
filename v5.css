@@ -167,3 +167,5 @@ button:focus-visible,[role="button"]:focus-visible{outline:3px solid #ffc477;out
 @media(min-width:570px){.v5-photo{height:175px}.cat-alquiler .v5-photo{height:230px}}
 
 .groups-heading h2,.groups-heading h2::first-letter{color:#fff!important;text-shadow:0 1px 6px #081a3033}.groups-heading .tiny-eyebrow{color:#ffca85}.group-card h3{color:#142c49}
+
+.v5-detail-photo{position:relative;background:linear-gradient(135deg,#ddeaf5,#fff0de);min-height:190px}.v5-detail-photo::before{content:'🖼️';font-size:58px;opacity:.25;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.v5-detail-photo img{position:relative;z-index:1;color:transparent}
