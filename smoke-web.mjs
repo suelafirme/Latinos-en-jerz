@@ -25,7 +25,7 @@ try{
  await page.locator('#passwordEye').click();
  const t2=await page.locator('#authPassword').getAttribute('type');
  if(t2!=='password')throw Error('Hide password eye failed');
- await page.evaluate(()=>{window.LATINOS_CORE.modal('authModal',false);window.LATINOS_V5.onEditorOpen();window.LATINOS_CORE.modal('editorModal');});
+ await page.evaluate(()=>{window.LATINOS_CORE.modal('authModal',false);document.getElementById('postCategory').innerHTML=['Servicios','Belleza','Alquiler','Compra y venta','Transporte','Empleo','Comida','Conocer gente'].map(x=>'<option>'+x+'</option>').join('');window.LATINOS_V5.onEditorOpen();window.LATINOS_CORE.modal('editorModal');});
  await page.getByRole('button',{name:/Alquiler/}).last().click();
  await page.waitForSelector('[data-v5-key="property"]');
  await page.getByRole('button',{name:/Transporte/}).last().click();
