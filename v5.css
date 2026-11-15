@@ -165,3 +165,5 @@ button:focus-visible,[role="button"]:focus-visible{outline:3px solid #ffc477;out
 .v5-listing-body{padding:9px}
 }
 @media(min-width:570px){.v5-photo{height:175px}.cat-alquiler .v5-photo{height:230px}}
+
+.groups-heading h2,.groups-heading h2::first-letter{color:#fff!important;text-shadow:0 1px 6px #081a3033}.groups-heading .tiny-eyebrow{color:#ffca85}.group-card h3{color:#142c49}
