@@ -52,7 +52,7 @@ const cats={
 ['ordering','Pedidos','select',['Bajo pedido','Para hoy','Encargos para eventos']],
 ['delivery','Entrega','select',['Recogida','A domicilio','Ambas']],
 ['notice','Antelación','text',null,false,'Ej. Encargar con 24 horas'],
-['quantity','Cantidad / raciones','text',null,false,'Ej. Bandeja para 4 personas']]]},
+['quantity','Cantidad / raciones','text',null,false,'Ej. Bandeja para 4 personas']]},
 'Conocer gente':{icon:'🤝',tag:'Conexiones',intro:'Conoce gente nueva con respeto y privacidad.',price:null,fields:[
 ['purpose','Quiero conocer gente para','select',['Amistad','Deporte','Intercambio de idiomas','Actividades culturales','Planes en grupo','Networking'],true],
 ['interests','Mis intereses','text',null,false,'Ej. fútbol, cocina, viajes'],
