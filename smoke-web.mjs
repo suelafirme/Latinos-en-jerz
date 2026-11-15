@@ -17,6 +17,7 @@ try{
  await page.getByRole('button',{name:/Perfil/}).last().click();
  await page.waitForSelector('#accountLogin',{timeout:15000});
  await page.screenshot({path:'ui-screenshot.png',fullPage:true});
+ await page.locator('#accountLogin').click();
  await page.waitForSelector('#passwordEye',{timeout:15000});
  await page.locator('#passwordEye').click();
  const t1=await page.locator('#authPassword').getAttribute('type');
@@ -24,7 +25,7 @@ try{
  await page.locator('#passwordEye').click();
  const t2=await page.locator('#authPassword').getAttribute('type');
  if(t2!=='password')throw Error('Hide password eye failed');
- await page.evaluate(()=>window.LATINOS_V5.onEditorOpen());
+ await page.evaluate(()=>{window.LATINOS_CORE.modal('authModal',false);window.LATINOS_V5.onEditorOpen();window.LATINOS_CORE.modal('editorModal');});
  await page.getByRole('button',{name:/Alquiler/}).last().click();
  await page.waitForSelector('[data-v5-key="property"]');
  await page.getByRole('button',{name:/Transporte/}).last().click();
