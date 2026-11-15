@@ -62,7 +62,7 @@ const cats={
 const allNames=Object.keys(cats);
 const safeUrl=u=>typeof u==='string'&&/^https:\/\/[A-Za-z0-9._-]+\//.test(u)?esc(u):'';
 function fieldHTML([key,label,kind,opts,required,placeholder],value){
- const id='type_'+key;const val=value??'';const req=required?' required':'';
+ const id='type_'+key;const val=value&&typeof value==='object'?(value[key]??''):(value??'');const req=required?' required':'';
  if(kind==='select')return '<div class="field v5-field"><label for="'+id+'">'+esc(label)+(required?' *':'')+'</label><select id="'+id+'" data-v5-key="'+key+'"'+req+'><option value="">Selecciona una opción</option>'+opts.map(o=>'<option value="'+esc(o)+'" '+(o===val?'selected':'')+'>'+esc(o)+'</option>').join('')+'</select></div>';
  const type=kind==='number'?'number':kind==='date'?'date':kind==='time'?'time':'text';
  const attrs=type==='number'?' min="0" max="10000000" step="1"':' maxlength="180"';
