@@ -17,5 +17,20 @@ try{
  await page.getByRole('button',{name:/Perfil/}).last().click();
  await page.waitForSelector('#accountLogin',{timeout:15000});
  await page.screenshot({path:'ui-screenshot.png',fullPage:true});
+ await page.waitForSelector('#passwordEye',{timeout:15000});
+ await page.locator('#passwordEye').click();
+ const t1=await page.locator('#authPassword').getAttribute('type');
+ if(t1!=='text')throw Error('Show password eye failed');
+ await page.locator('#passwordEye').click();
+ const t2=await page.locator('#authPassword').getAttribute('type');
+ if(t2!=='password')throw Error('Hide password eye failed');
+ await page.evaluate(()=>window.LATINOS_V5.onEditorOpen());
+ await page.getByRole('button',{name:/Alquiler/}).last().click();
+ await page.waitForSelector('[data-v5-key="property"]');
+ await page.getByRole('button',{name:/Transporte/}).last().click();
+ await page.waitForSelector('[data-v5-key="origin"]');
+ await page.getByRole('button',{name:/Servicios/}).last().click();
+ await page.waitForSelector('[data-v5-key="service"]');
+ console.log('PASSED: password visibility and category-based listing forms');
  console.log('PASSED: navigation, groups, unauthenticated profile');
 }finally{await browser.close()}
