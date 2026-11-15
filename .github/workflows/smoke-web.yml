@@ -9,6 +9,9 @@ on:
       - 'community.js'
       - 'config.js'
       - 'logo.svg'
+      - 'v5.js'
+      - 'v5.css'
+      - 'smoke-web.mjs'
       - '.github/workflows/smoke-web.yml'
 permissions:
   contents: read
@@ -22,6 +25,8 @@ jobs:
         run: |
           node --check app.js
           node --check community.js
+          node --check v5.js
+          test -s v5.css
           test -s logo.svg
           test -s index.html
       - name: Check Supabase browser CDN
