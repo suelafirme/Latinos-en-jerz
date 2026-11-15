@@ -34,20 +34,20 @@ jobs:
       - name: Name and verify APK
         shell: bash
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk latinos-en-jerez-v4.apk
-          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose latinos-en-jerez-v4.apk
-          "${ANDROID_HOME}/build-tools/35.0.0/aapt" dump badging latinos-en-jerez-v4.apk | head -8
+          cp app/build/outputs/apk/debug/app-debug.apk latinos-en-jerez-v5.apk
+          "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose latinos-en-jerez-v5.apk
+          "${ANDROID_HOME}/build-tools/35.0.0/aapt" dump badging latinos-en-jerez-v5.apk | head -8
       - uses: actions/upload-artifact@v4
         with:
-          name: LATINOS-EN-JEREZ-APK
-          path: latinos-en-jerez-v4.apk
+          name: LATINOS-EN-JEREZ-V5-APK
+          path: latinos-en-jerez-v5.apk
       - name: Publish APK release
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          if gh release view v4.0.0 >/dev/null 2>&1; then
-            gh release upload v4.0.0 latinos-en-jerez-v4.apk --clobber
+          if gh release view v5.0.0 >/dev/null 2>&1; then
+            gh release upload v5.0.0 latinos-en-jerez-v5.apk --clobber
           else
-            gh release create v4.0.0 latinos-en-jerez-v4.apk --title "LATINOS EN JEREZ — Android V4" --notes "APK de prueba para Android. Comunidad Latina en Jerez. El instalador está firmado con la clave de desarrollo y necesita conexión a Internet. Instálalo solo desde este repositorio oficial."
+            gh release create v5.0.0 latinos-en-jerez-v5.apk --title "LATINOS EN JEREZ — Android V5" --notes "APK de prueba para Android. Comunidad Latina en Jerez. El instalador está firmado con la clave de desarrollo y necesita conexión a Internet. Instálalo solo desde este repositorio oficial."
           fi
